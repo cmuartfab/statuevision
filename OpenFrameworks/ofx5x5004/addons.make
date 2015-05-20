@@ -1,0 +1,7 @@
+ofx3DModelLoader
+ofxAssimpModelLoader
+ofxGui
+ofxNetwork
+ofxOsc
+ofxXmlSettings
+ofxPuppet
