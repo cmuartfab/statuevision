@@ -29,4 +29,4 @@ The following steps will attach the proper scripts that will control the shader 
 
 13. Click "Add Component" in the inspector and choose Script > Leap Control
 
-14. The sculpture now constantly faces you and can be manipulated with Leap. Click and drag the "default" component into the statue folder to create a sculpture prefab that includes all the script. 
+14. The sculpture now constantly faces you and can be manipulated with Leap. Click and drag the "default" component into the statue folder to create a sculpture prefab that includes all the script. Name it something reasonable so you can identify it.
