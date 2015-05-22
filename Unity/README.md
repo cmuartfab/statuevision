@@ -5,13 +5,13 @@ This unity project is set up to work with 10 example 3d models in the repository
 
 2. Go to google drive and download the corresponding binaries folder: https://drive.google.com/file/d/0B9xrGq3470WfTUhNZU5VNFd2Zkk/view?usp=sharing
 
-3. Move the contents of the binaries folder into the standard assets folder of the Unity project.
+3. Move the contents of the binaries folder into "Standard Assets/Models/"
 
 To import additional models into the project, follow these steps:
 
 1. Open "Template.unity" scene. M
 
-2. Place the folder containing the statue model into the assets folder of the Unity project. Somewhere like a models folder.
+2. Place the folder containing the statue model into "Standard Assets/Models/".
 
 3. The statue should import into the project automatically, but if it doesn't, just right-click on the folder and click "Reimport".
 
