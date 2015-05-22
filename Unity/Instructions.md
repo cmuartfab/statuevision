@@ -20,4 +20,4 @@ To implement the statue into Unity with all the shaders and functionality includ
 
 10. Take note of which direction the sculpture is facing. Set the twist to 180. If the sculpture is not facing the direct opposite of where it was before, tweak the "Eye Level" value until it does. Ensure that all materials in the folder have the same Eye Level value.
 
-The following steps will attach the proper scripts that will control the shader parameters and making a new prefab. These are tentative depending on what scripts we actually decide to use.
+Now that you've created a unique, functional sculpture prefab, click and drag that prefab into the appropriate sculpture folder and rename it something reasonable.
