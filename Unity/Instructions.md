@@ -1,4 +1,13 @@
 # statuevision
+To properly get a project running, follow these steps:
+1. Download the project folder you want here. 
+
+2. Go to google drive and download the corresponding binaries folder: https://drive.google.com/drive/folders/0B9xrGq3470WfSXNpZldKR1VmbjQ
+
+3. Move the contents of the binaries folder into the standard assets folder of the Unity project.
+
+
+
 To implement the statue into Unity with all the shaders and functionality included, follow these steps:
 
 1. Open "Template.unity" scene. Make sure the Unity project you're using is the one Ralph uploaded to git or Drive.
