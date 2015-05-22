@@ -3,7 +3,7 @@ This unity project is set up to work with 10 example 3d models in the repository
 
 1. Download the project folder you want here. 
 
-2. Go to google drive and download the corresponding binaries folder: https://drive.google.com/open?id=0B95PAxBg2-iiUklMNC1aT3RhY0U
+2. Go to google drive and download the corresponding binaries folder: https://drive.google.com/file/d/0B9xrGq3470WfUGhkNFVUa0VxYnc/view?usp=sharing
 
 3. Move the contents of the binaries folder into the standard assets folder of the Unity project.
 
