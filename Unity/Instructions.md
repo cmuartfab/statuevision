@@ -1,5 +1,6 @@
 # statuevision
 To properly get a project running, follow these steps:
+
 1. Download the project folder you want here. 
 
 2. Go to google drive and download the corresponding binaries folder: https://drive.google.com/drive/folders/0B9xrGq3470WfSXNpZldKR1VmbjQ
