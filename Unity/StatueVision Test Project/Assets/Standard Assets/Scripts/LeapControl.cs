@@ -7,13 +7,16 @@ public class LeapControl : MonoBehaviour {
 	Controller controller;
 	Listener listener;
 
+	public float maxDistance;
+
 	private float bendAmount;
 	private float bendAngle;
-	private bool manipulable;
+	private bool manipulable = false;
 
 	private GameObject FPSController;
 	private Transform target;
 	private Material[] materials;
+	private Transform childStatue;
 
 	void Start() {
 
@@ -24,17 +27,26 @@ public class LeapControl : MonoBehaviour {
 		FPSController = GameObject.FindWithTag ("Player");
 		target = FPSController.transform;
 
-		materials = this.gameObject.transform.GetChild(0).GetChild(0).GetComponent<Renderer> ().materials;
+		//initialize reference to materials 
+		childStatue = this.gameObject.transform.GetChild (0).GetChild (0);
+		materials = childStatue.GetComponent<Renderer> ().materials;
 
+		//ties the right sculpture mesh from child
+		this.gameObject.GetComponent<MeshCollider>().sharedMesh = childStatue.gameObject.GetComponent<MeshFilter>().mesh;
+
+		//create trigger collider
+		childStatue.gameObject.AddComponent<CapsuleCollider>();
+		childStatue.GetComponent<CapsuleCollider> ().isTrigger = true;
 	}
 
 	void OnTriggerEnter(Collider other) {
-		print ("YO");
 		manipulable = true;
 	}
 
-	void OnTriggerExit(Collider other) {
-		manipulable = false;
+	void checkPlayerDistance() {
+		if (manipulable && 
+			Vector3.Distance (target.position, this.transform.position) > maxDistance)
+			manipulable = false;
 	}
 
 	void Manipulate() {
@@ -58,6 +70,7 @@ public class LeapControl : MonoBehaviour {
 	}
 
 	void Update() {
+		checkPlayerDistance ();
 		if (manipulable) Manipulate ();
 	}
 }
