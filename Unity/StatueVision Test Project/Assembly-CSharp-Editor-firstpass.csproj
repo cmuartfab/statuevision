@@ -52,12 +52,16 @@
      <None Include="Assets\Plugins\donotdelete.txt" />
      <None Include="Assets\Standard Assets\Shaders\LeapIRDistorted.shader" />
      <None Include="Assets\Standard Assets\Shaders\LeapRGBDistorted.shader" />
+     <None Include="Assets\VROneControls\Shaders\GUIFrontText.shader" />
      <None Include="Assets\Plugins\x86_64\donotdelete.txt" />
      <None Include="Assets\Standard Assets\Shaders\Distort.shader" />
      <None Include="Assets\Standard Assets\Shaders\LeapIRUndistorted_foreground.shader" />
      <None Include="Assets\Standard Assets\Shaders\RimShading.shader" />
+     <None Include="Assets\VROneControls\Shaders\GUIText.shader" />
+     <None Include="Assets\VROne\Lens\Resources\VROneSDKLUTDistortion.shader" />
      <None Include="Assets\Plugins\x86\donotdelete.txt" />
      <None Include="Assets\Standard Assets\Shaders\LeapRGBUndistorted.shader" />
+     <None Include="Assets\VROneControls\Shaders\Unlit-AlphaIcon.shader" />
      <None Include="Assets\Plugins\SystemWipeRecognizerDll.bundle\Contents\MacOS\version.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
@@ -66,7 +70,7 @@
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/Editor/UnityEditor.UI.dll</HintPath>
  </Reference>
  <Reference Include="LeapCSharp.NET3.5">
- <HintPath>/Users/ralph/Documents/github/statuevision/Unity/StatueVision Test Project/Assets/Plugins/LeapCSharp.NET3.5.dll</HintPath>
+ <HintPath>/Users/clairehentschker/Documents/Development/statuevision/Unity/StatueVision Test Project/Assets/Plugins/LeapCSharp.NET3.5.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.Graphs">
  <HintPath>/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEditor.Graphs.dll</HintPath>

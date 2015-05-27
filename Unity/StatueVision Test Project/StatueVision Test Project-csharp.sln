@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 
 Project("{09C83A12-5C58-46CD-E15E-7594419E0ECC}") = "StatueVision Test Project", "Assembly-CSharp-firstpass-vs.csproj", "{F908C104-2D31-F4B0-8430-6E38CA3C1184}"
 EndProject
+Project("{09C83A12-5C58-46CD-E15E-7594419E0ECC}") = "StatueVision Test Project", "Assembly-CSharp-vs.csproj", "{00ED48BE-7D56-E229-6431-148E682F3A6A}"
+EndProject
 Project("{09C83A12-5C58-46CD-E15E-7594419E0ECC}") = "StatueVision Test Project", "Assembly-CSharp-Editor-firstpass-vs.csproj", "{E64F0799-E70E-0C59-F522-71673273A0EC}"
 EndProject
 Global
@@ -15,6 +17,10 @@ Global
 		{F908C104-2D31-F4B0-8430-6E38CA3C1184}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F908C104-2D31-F4B0-8430-6E38CA3C1184}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F908C104-2D31-F4B0-8430-6E38CA3C1184}.Release|Any CPU.Build.0 = Release|Any CPU
+		{00ED48BE-7D56-E229-6431-148E682F3A6A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00ED48BE-7D56-E229-6431-148E682F3A6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00ED48BE-7D56-E229-6431-148E682F3A6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00ED48BE-7D56-E229-6431-148E682F3A6A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E64F0799-E70E-0C59-F522-71673273A0EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E64F0799-E70E-0C59-F522-71673273A0EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E64F0799-E70E-0C59-F522-71673273A0EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -23,7 +29,7 @@ Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-			GlobalSection(MonoDevelopProperties) = preSolution
+					GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = Assembly-CSharp.csproj
 		Policies = $0
 		$0.TextStylePolicy = $1

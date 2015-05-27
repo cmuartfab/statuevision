@@ -1,3 +1,48 @@
 Base path: /Applications/Unity/Unity.app/Contents
-Pipe name: \\.\pipe\UnityShaderCompiler-64bit-1-1933456128
+Pipe name: \\.\pipe\UnityShaderCompiler-64bit-1-1923511040
 Cmd: getPlatforms
+Cmd: preprocess
+  insize=1349 outsize=441 ok=1
+Cmd: preprocess
+  insize=3469 outsize=596 ok=1
+Cmd: preprocess
+  insize=7594 outsize=476 ok=1
+Cmd: compileSnippet
+  error: 2 plat 0 at (123): 'gl_' : reserved built-in name\nCompiling Vertex program
+  api=0 type=0 insize=7419 outsize=0 kw= ok=0
+Cmd: preprocess
+  insize=2370 outsize=472 ok=1
+Cmd: preprocess
+  insize=1350 outsize=442 ok=1
+Cmd: preprocess
+  insize=792 outsize=789 ok=1
+Cmd: preprocess
+  insize=2487 outsize=514 ok=1
+Cmd: preprocess
+  insize=432 outsize=429 ok=1
+Cmd: preprocess
+  insize=1430 outsize=637 ok=1
+Cmd: compileSnippet
+  api=0 type=0 insize=1095 outsize=776 kw= ok=1
+Cmd: compileSnippet
+  api=0 type=1 insize=1095 outsize=6 kw= ok=1
+Cmd: preprocess
+  insize=3919 outsize=637 ok=1
+Cmd: compileSnippet
+  api=0 type=0 insize=3581 outsize=3124 kw= ok=1
+Cmd: compileSnippet
+  api=0 type=1 insize=3581 outsize=6 kw= ok=1
+Cmd: preprocess
+  insize=434 outsize=431 ok=1
+Cmd: compileSnippet
+  api=0 type=0 insize=990 outsize=450 kw= ok=1
+Cmd: compileSnippet
+  api=0 type=1 insize=990 outsize=6 kw= ok=1
+Cmd: compileSnippet
+  api=0 type=0 insize=577 outsize=1880 kw=SHADOWS_DEPTH ok=1
+Cmd: compileSnippet
+  api=0 type=1 insize=577 outsize=6 kw=SHADOWS_DEPTH ok=1
+Cmd: compileSnippet
+  api=0 type=0 insize=6800 outsize=2255 kw=DIRECTIONAL SHADOWS_OFF LIGHTMAP_OFF DIRLIGHTMAP_OFF DYNAMICLIGHTMAP_OFF ok=1
+Cmd: compileSnippet
+  api=0 type=1 insize=6800 outsize=6 kw=DIRECTIONAL SHADOWS_OFF LIGHTMAP_OFF DIRLIGHTMAP_OFF DYNAMICLIGHTMAP_OFF ok=1
