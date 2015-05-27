@@ -1,4 +1,4 @@
-# statuevision
+# statuevision Unity Project for Glasgow, UK
 This unity project is set up to work with 10 example 3d models in the repository. To properly get a project running, follow these steps:
 
 1. Download the project folder you want here. 
