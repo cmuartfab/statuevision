@@ -2,11 +2,11 @@ using System;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 using Random = UnityEngine.Random;
+using Leap;
 
 namespace UnityStandardAssets.Characters.FirstPerson
 {
     [RequireComponent(typeof (CharacterController))]
-    [RequireComponent(typeof (AudioSource))]
     public class FirstPersonController : MonoBehaviour
     {
         [SerializeField] private bool m_IsWalking;
@@ -18,8 +18,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
         [SerializeField] private MouseLook m_MouseLook;
         [SerializeField] private float m_StepInterval;
         [SerializeField] private AudioClip[] m_FootstepSounds;    // an array of footstep sounds that will be randomly selected from.
-        [SerializeField] private AudioClip m_JumpSound;           // the sound played when character leaves the ground.
-        [SerializeField] private AudioClip m_LandSound;           // the sound played when character touches back on ground.
 
         private Camera m_Camera;
         private float m_YRotation;
@@ -31,9 +29,15 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private float m_NextStep;
         private AudioSource m_AudioSource;
 
+		private Controller controller;
+
         // Use this for initialization
         private void Start()
         {
+			//initialize Leap motion detection
+			controller = new Controller ();
+			controller.EnableGesture (Gesture.GestureType.TYPE_KEY_TAP);
+
             m_CharacterController = GetComponent<CharacterController>();
             m_Camera = Camera.main;
             m_StepCycle = 0f;
@@ -48,15 +52,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
         {
             RotateView();
         }
-
-
-        private void PlayLandingSound()
-        {
-            m_AudioSource.clip = m_LandSound;
-            m_AudioSource.Play();
-            m_NextStep = m_StepCycle + .5f;
-        }
-
 
         private void FixedUpdate()
         {
@@ -88,13 +83,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
             ProgressStepCycle(speed);
             UpdateCameraPosition(speed);
-        }
-
-
-        private void PlayJumpSound()
-        {
-            m_AudioSource.clip = m_JumpSound;
-            m_AudioSource.Play();
         }
 
 
@@ -146,6 +134,15 @@ namespace UnityStandardAssets.Characters.FirstPerson
             float horizontal = CrossPlatformInputManager.GetAxis("Horizontal");
             float vertical = CrossPlatformInputManager.GetAxis("Vertical");
 
+			Frame frame = controller.Frame ();
+			GestureList gestures = frame.Gestures ();
+			for (int i = 0; i < gestures.Count; i++) {
+				Gesture gesture = gestures[i];
+				vertical = 1;
+				KeyTapGesture tap = new KeyTapGesture(gesture);
+				print (tap.Position);
+			}
+
 #if !MOBILE_INPUT
             // On standalone builds, walk/run speed is modified by a key press.
             // keep track of whether or not the character is walking or running
@@ -160,7 +157,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
             {
                 m_Input.Normalize();
             }
-
         }
 
 

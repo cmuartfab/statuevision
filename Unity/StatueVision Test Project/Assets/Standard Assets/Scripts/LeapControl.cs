@@ -12,11 +12,13 @@ public class LeapControl : MonoBehaviour {
 	private float bendAmount;
 	private float bendAngle;
 	private bool manipulable = false;
+	private bool audioPlayed = false;
 
 	private GameObject FPSController;
 	private Transform target;
 	private Material[] materials;
 	private Transform childStatue;
+	private AudioSource audio;
 
 	void Start() {
 
@@ -37,16 +39,27 @@ public class LeapControl : MonoBehaviour {
 		//create trigger collider
 		childStatue.gameObject.AddComponent<CapsuleCollider>();
 		childStatue.GetComponent<CapsuleCollider> ().isTrigger = true;
+
+		//initialize audio
+		audio = GetComponent<AudioSource> ();
 	}
 
 	void OnTriggerEnter(Collider other) {
 		manipulable = true;
+		if (!audioPlayed) {
+			audio.Play ();
+			audioPlayed = true;
+		} else {
+			audio.UnPause ();
+		}
 	}
 
 	void checkPlayerDistance() {
 		if (manipulable && 
-			Vector3.Distance (target.position, this.transform.position) > maxDistance)
+			Vector3.Distance (target.position, this.transform.position) > maxDistance) {
 			manipulable = false;
+			audio.Pause();
+		}
 	}
 
 	void Manipulate() {
