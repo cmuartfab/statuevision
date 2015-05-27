@@ -7,7 +7,7 @@ See the readme files in sub-folders for application specific instructions.
 
 If you have git conflicts, try this in Terminal:
 
->cd [to the folder where your 'statuevision' repository is]
->git add .
->git stash
->git checkout
+>cd [to the folder where your 'statuevision' repository is]</br>
+>git add .</br>
+>git stash</br>
+>git checkout</br>
