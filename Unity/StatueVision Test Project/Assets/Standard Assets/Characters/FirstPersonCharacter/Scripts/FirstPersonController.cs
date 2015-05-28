@@ -201,8 +201,11 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_IsWalking = !Input.GetKey(KeyCode.LeftShift);
 #endif
             // set the desired speed to be walking or running
-            speed = m_IsWalking ? m_WalkSpeed : m_RunSpeed;
-            m_Input = new Vector2(horizontal, vertical);
+//            speed = m_IsWalking ? m_WalkSpeed : m_RunSpeed;
+			m_Input = new Vector2(horizontal, vertical);
+
+			// set the desired speed based on hand position
+			speed = m_WalkSpeed * m_Input.magnitude;
 
             // normalize input if it exceeds 1 in combined length:
             if (m_Input.sqrMagnitude > 1)
