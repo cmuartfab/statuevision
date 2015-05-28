@@ -48,18 +48,21 @@
   <ItemGroup>
      <Compile Include="Assets\Plugins\AppLauncher.cs" />
      <Compile Include="Assets\Plugins\IOSHelper.cs" />
+     <Compile Include="Assets\Standard Assets\Characters\FirstPersonCharacter\Scripts\FirstPersonController.cs" />
+     <Compile Include="Assets\Standard Assets\Characters\FirstPersonCharacter\Scripts\HeadBob.cs" />
      <Compile Include="Assets\Standard Assets\Scripts\CrossPlatformInput\AxisTouchButton.cs" />
      <Compile Include="Assets\Standard Assets\Scripts\CrossPlatformInput\ButtonHandler.cs" />
      <Compile Include="Assets\Standard Assets\Scripts\CrossPlatformInput\CrossPlatformInputManager.cs" />
      <Compile Include="Assets\Standard Assets\Scripts\CrossPlatformInput\InputAxisScrollbar.cs" />
      <Compile Include="Assets\Standard Assets\Scripts\CrossPlatformInput\Joystick.cs" />
      <Compile Include="Assets\Standard Assets\Scripts\CrossPlatformInput\MobileControlRig.cs" />
+     <Compile Include="Assets\Standard Assets\Scripts\CrossPlatformInput\PlatformSpecific\LeapInput.cs" />
      <Compile Include="Assets\Standard Assets\Scripts\CrossPlatformInput\PlatformSpecific\MobileInput.cs" />
      <Compile Include="Assets\Standard Assets\Scripts\CrossPlatformInput\PlatformSpecific\StandaloneInput.cs" />
      <Compile Include="Assets\Standard Assets\Scripts\CrossPlatformInput\TiltInput.cs" />
      <Compile Include="Assets\Standard Assets\Scripts\CrossPlatformInput\TouchPad.cs" />
      <Compile Include="Assets\Standard Assets\Scripts\CrossPlatformInput\VirtualInput.cs" />
-     <Compile Include="Assets\Standard Assets\Scripts\FirstPersonController.cs" />
+     <Compile Include="Assets\Standard Assets\Scripts\FingerTestControl.cs" />
      <Compile Include="Assets\Standard Assets\Scripts\HandController.cs" />
      <Compile Include="Assets\Standard Assets\Scripts\Hands\DebugFinger.cs" />
      <Compile Include="Assets\Standard Assets\Scripts\Hands\DebugHand.cs" />
@@ -77,6 +80,7 @@
      <Compile Include="Assets\Standard Assets\Scripts\LeapImageRetriever.cs" />
      <Compile Include="Assets\Standard Assets\Scripts\MouseLook.cs" />
      <Compile Include="Assets\Standard Assets\Scripts\RigidbodyFirstPersonController.cs" />
+     <Compile Include="Assets\Standard Assets\Scripts\StatueScript.cs" />
      <Compile Include="Assets\Standard Assets\Scripts\Tools\ToolModel.cs" />
      <Compile Include="Assets\Standard Assets\Scripts\TurnToFace.cs" />
      <Compile Include="Assets\Standard Assets\Scripts\TwistToFace.cs" />
@@ -105,12 +109,13 @@
      <None Include="Assets\Plugins\x86\donotdelete.txt" />
      <None Include="Assets\Standard Assets\Shaders\LeapRGBUndistorted.shader" />
      <None Include="Assets\VROneControls\Shaders\Unlit-AlphaIcon.shader" />
+     <None Include="Assets\Standard Assets\Characters\FirstPersonCharacter\FirstPersonCharacterGuidelines.txt" />
      <None Include="Assets\Plugins\SystemWipeRecognizerDll.bundle\Contents\MacOS\version.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="LeapCSharp.NET3.5">
- <HintPath>/Users/clairehentschker/Documents/Development/statuevision/Unity/StatueVision Test Project/Assets/Plugins/LeapCSharp.NET3.5.dll</HintPath>
+ <HintPath>/Users/ralph/Documents/github/statuevision/Unity/StatueVision Test Project/Assets/Plugins/LeapCSharp.NET3.5.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.iOS.Extensions.Xcode">
  <HintPath>/Applications/Unity/Unity.app/Contents/PlaybackEngines/iossupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>

@@ -2,88 +2,84 @@
 using System.Collections;
 using Leap;
 
-public class LeapControl : MonoBehaviour {
-	
-	Controller controller;
-	Listener listener;
+namespace UnityStandardAssets.CrossPlatformInput 
+{
+	public class LeapControl : MonoBehaviour 
+	{
 
-	public float maxDistance;
+		public string horizontalAxisName = "Horizontal"; // The name given to the horizontal axis for the cross platform input
+		public string verticalAxisName = "Vertical"; // The name given to the vertical axis for the cross platform input
+		CrossPlatformInputManager.VirtualAxis m_HorizontalVirtualAxis; // Reference to the joystick in the cross platform input
+		CrossPlatformInputManager.VirtualAxis m_VerticalVirtualAxis; // Reference to the joystick in the cross platform input
 
-	private float bendAmount;
-	private float bendAngle;
-	private bool manipulable = false;
-	private bool audioPlayed = false;
+		private Controller controller;
 
-	private GameObject FPSController;
-	private Transform target;
-	private Material[] materials;
-	private Transform childStatue;
-	private AudioSource audio;
+		// Use this for initialization
+		void Start () 
+		{
+			controller = new Controller ();
 
-	void Start() {
-
-		//initialize Leap motion detection
-		controller = new Controller ();
-
-		//read player position as target
-		FPSController = GameObject.FindWithTag ("Player");
-		target = FPSController.transform;
-
-		//initialize reference to materials 
-		childStatue = this.gameObject.transform.GetChild (0).GetChild (0);
-		materials = childStatue.GetComponent<Renderer> ().materials;
-
-		//ties the right sculpture mesh from child
-		this.gameObject.GetComponent<MeshCollider>().sharedMesh = childStatue.gameObject.GetComponent<MeshFilter>().mesh;
-
-		//create trigger collider
-		childStatue.gameObject.AddComponent<CapsuleCollider>();
-		childStatue.GetComponent<CapsuleCollider> ().isTrigger = true;
-
-		//initialize audio
-		audio = GetComponent<AudioSource> ();
-	}
-
-	void OnTriggerEnter(Collider other) {
-		manipulable = true;
-		if (!audioPlayed) {
-			audio.Play ();
-			audioPlayed = true;
-		} else {
-			audio.UnPause ();
-		}
-	}
-
-	void checkPlayerDistance() {
-		if (manipulable && 
-			Vector3.Distance (target.position, this.transform.position) > maxDistance) {
-			manipulable = false;
-			audio.Pause();
-		}
-	}
-
-	void Manipulate() {
-		//frame is where leap motion data is stored. Calculate bend angle based on hand position
-		Frame frame = controller.Frame ();
-		if (frame.Hands.Count > 0) {
-			Leap.Vector palmPosition = frame.Hands[0].PalmPosition;
-			float dx = palmPosition.x;
-			float dz = palmPosition.z;
-			bendAngle = 360 - Mathf.Atan2(dx, dz) * 180f / Mathf.PI;
-			bendAmount = Mathf.Sqrt(Mathf.Pow(dx, 2f) + Mathf.Pow(dz, 2f)) * 0.0001f;
+			CreateVirtualAxes();
 		}
 		
-		//apply bend and twist to all materials
-		for (int i = 0; i < materials.Length; i++)
+		// Update is called once per frame
+		void Update () 
 		{
-			materials[i].SetFloat("_BendAmount", bendAmount);
-			materials[i].SetFloat("_BendAngle", bendAngle);
-			//			materials[i].SetFloat("_TwistAmount", 0);
+			UpdateVirtualAxes ();
 		}
-	}
 
-	void Update() {
-		checkPlayerDistance ();
-		if (manipulable) Manipulate ();
-	}
+		void CreateVirtualAxes()
+		{
+			// create new axes based on axes to use
+			m_HorizontalVirtualAxis = new CrossPlatformInputManager.VirtualAxis(horizontalAxisName);
+			CrossPlatformInputManager.RegisterVirtualAxis(m_HorizontalVirtualAxis);
+
+			m_VerticalVirtualAxis = new CrossPlatformInputManager.VirtualAxis(verticalAxisName);
+			CrossPlatformInputManager.RegisterVirtualAxis(m_VerticalVirtualAxis);
+		}
+
+		void UpdateVirtualAxes()
+		{
+			Frame frame = controller.Frame ();
+			float horizontal = 0f;
+			float vertical = 0f;
+
+			for (int i = 0; i < frame.Hands.Count; i++) 
+			{
+				if (frame.Hands [i].IsRight) 
+				{
+					float forx = frame.Hands [i].Fingers [1].Direction.x;
+					float fory = frame.Hands [i].Fingers [1].Direction.y;
+					//print (frame.Hands [i].Fingers [1].Direction);
+					if (fory > -0.4 && fory < 0.4) 
+					{
+						vertical = 1f - Mathf.Abs(fory);
+						horizontal = forx * 3f;
+					}
+					float back = frame.Hands [0].Fingers [0].Direction.x;
+					if (back > -1f && back < -0.5 && !(fory > -0.2 && fory < 0.2)) 
+					{
+						vertical = -1;					
+					}
+				}	
+			}
+			m_HorizontalVirtualAxis.Update(horizontal);
+			
+			m_VerticalVirtualAxis.Update(vertical);
+		}
+
+		void MouseControl () 
+		{
+			Frame frame = controller.Frame ();
+			for (int i = 0; i < frame.Hands.Count; i++) 
+			{
+				if (frame.Hands [i].IsLeft) 
+				{
+					Leap.Vector palmPosition = frame.Hands [i].PalmPosition;
+					float dx = palmPosition.x;
+					float dz = palmPosition.z;
+				}
+			}
+		}
+	}	
 }
