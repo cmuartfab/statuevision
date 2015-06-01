@@ -8,12 +8,6 @@ public class StatueViewPort : MonoBehaviour {
 
 	public void Start() 
 	{
-		//connect all statue scripts with this script
-		statues = GameObject.FindGameObjectsWithTag ("Statue");
-		foreach (GameObject statue in statues) 
-		{
-			statue.GetComponent<StatueScript>().SetStatueViewPort(this);
-		}
 	}
 
 	public void SelectStatue(GameObject statue) 
@@ -28,5 +22,4 @@ public class StatueViewPort : MonoBehaviour {
 		print ("Deselect");
 		GameObject.Destroy (statueClone);
 	}
-
 }

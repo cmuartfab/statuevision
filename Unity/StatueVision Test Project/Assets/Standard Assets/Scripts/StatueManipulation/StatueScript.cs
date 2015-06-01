@@ -21,11 +21,9 @@ public class StatueScript : MonoBehaviour {
 	private Material[] materials;
 	private Transform childStatue;
 	private AudioSource audio;
+	private bool leftSide;
 
 	void Start() {
-
-		//initialize Leap motion detection
-		controller = new Controller ();
 
 		//read player position as target
 		FPSController = GameObject.FindWithTag ("Player");
@@ -44,6 +42,8 @@ public class StatueScript : MonoBehaviour {
 
 		//initialize audio
 		audio = GetComponent<AudioSource> ();
+
+		statueViewPort = GameObject.FindGameObjectWithTag("StatueViewPort").GetComponent<StatueViewPort>();
 		}
 
 	void OnTriggerEnter(Collider other) {
@@ -68,9 +68,9 @@ public class StatueScript : MonoBehaviour {
 		}
 	}
 
-	void Manipulate() {
+	void Manipulate(Frame frame) {
 		//frame is where leap motion data is stored. Calculate bend angle based on hand position
-		Frame frame = controller.Frame ();
+
 		if (frame.Hands.Count > 0) {
 			Leap.Vector palmPosition = frame.Hands[0].PalmPosition;
 			float dx = palmPosition.x;
@@ -88,10 +88,11 @@ public class StatueScript : MonoBehaviour {
 		manipulable = isManipulable;
 	}
 	
-	void Update() {
+	public void Update() {
 		checkPlayerDistance ();
-		if (manipulable) {
-			Manipulate ();
+		if (manipulable && leftSide) {
+			print ("YO");
+		//	Manipulate (frame);
 		}
 		//apply bend and twist to all materials
 		for (int i = 0; i < materials.Length; i++)
