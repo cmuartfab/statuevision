@@ -11,10 +11,12 @@ namespace UnityStandardAssets.CrossPlatformInput
 		float mouseX;
 		float mouseY;
 
-		public float rightMin_x = 50;
-		public float rightMax_x = 250;
-		public float rightMin_z = -150;
-		public float rightMax_z = 150;
+		public float rightCenter_x = 150;
+		public float rightCenter_z = 0;
+		public float rightHorMax = 100;
+		public float rightHorMin = 20;
+		public float rightVerMax = 150;
+		public float rightVerMin = 20;
 
 		public string horizontalAxisName = "Horizontal"; // The name given to the horizontal axis for the cross platform input
 		public string verticalAxisName = "Vertical"; // The name given to the vertical axis for the cross platform input
@@ -55,16 +57,26 @@ namespace UnityStandardAssets.CrossPlatformInput
 
 				Leap.Vector palmPosition = frame.Hands [i].PalmPosition;
 
-				//movement only with closed fist
-				if (palmPosition.x > rightMin_x && 
-					palmPosition.x < rightMax_x && 
-					palmPosition.z > rightMin_z && 
-					palmPosition.z < rightMax_z) 
+				//hand over right side
+				if (palmPosition.x > rightCenter_x - rightHorMax && 
+					palmPosition.x < rightCenter_x + rightHorMax && 
+					palmPosition.z > rightCenter_z - rightVerMax && 
+					palmPosition.z < rightCenter_z + rightVerMax) 
 				{
-					if (frame.Hands [i].SphereRadius > maxSphereRadius) 
+					Debug.Log("Right");
+					//over sensitivity threshold
+					if (palmPosition.x > rightCenter_x + rightHorMin ||
+					    palmPosition.x < rightCenter_x - rightHorMin ||
+					    palmPosition.z > rightCenter_z + rightVerMin ||
+					    palmPosition.z < rightCenter_z - rightVerMin) 
 					{
-						vertical = -(palmPosition.z) / 100;
-						mouseX = (palmPosition.x - 150) / 100;
+						//movement only with open palm
+						Debug.Log("sensitive");
+						if (frame.Hands [i].SphereRadius > maxSphereRadius) 
+						{
+							vertical = -(palmPosition.z) / 100;
+							mouseX = (palmPosition.x - 150) / 100;
+						}
 					}
 				}
 			}

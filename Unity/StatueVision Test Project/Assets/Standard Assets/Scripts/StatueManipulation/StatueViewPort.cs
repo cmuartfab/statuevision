@@ -12,6 +12,7 @@ public class StatueViewPort : MonoBehaviour {
 
 	public void SelectStatue(GameObject statue) 
 	{
+		GameObject.Destroy (statueClone);
 		print ("Select");
 		statueClone = Instantiate (statue, Vector3.zero, Quaternion.identity) as GameObject;
 		statueClone.GetComponent<StatueScript> ().SetIsManipulable (true);

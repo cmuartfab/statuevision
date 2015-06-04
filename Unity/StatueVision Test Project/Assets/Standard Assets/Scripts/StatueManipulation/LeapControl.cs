@@ -54,8 +54,9 @@ using Leap;
 				    palmPosition.z > leftMin_z && 
 				    palmPosition.z < leftMax_z) leftSide = true;
 				
-				leapFirstPersonControl.Update (frame, rightSide);
 			}
+	
+			leapFirstPersonControl.Update (frame, rightSide);
 
 			//PrintPosition (leftSide, rightSide);
 		}
