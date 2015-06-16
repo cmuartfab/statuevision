@@ -9,6 +9,8 @@ This unity project is set up to work with 10 example 3d models in the repository
 
 To import additional models into the project, follow these steps:
 
+NOTE: Statue should face towards the positive X direction. Its top should be pointing in the positive Y direction.
+
 1. Open "glasgow.unity" scene.
 
 2. Place the folder containing the statue model into "Standard Assets/Models/".
