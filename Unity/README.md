@@ -19,7 +19,7 @@ NOTE: Statue should face towards the positive X direction. Its top should be poi
 
 4. Insert the "Statue Prefab" from the Standard Assets/Prefabs folder into the scene. 
 
-5. Click and drag the statue mesh onto the "Scripted Sculpture" in the hierarchy (left side of window) to parent it. 
+5. Click and drag the statue mesh onto the "Statue Prefab" in the hierarchy (left side of window) to parent it. 
 
 6. Go into the "Materials" folder that should be automatically created inside the statue folder.
 
